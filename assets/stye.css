@@ -10,3 +10,15 @@
 .tasks i {
   cursor:pointer;
 }
+
+.tasks .fa-jedi-order {
+  color: green;
+}
+
+.tasks .fa-trash-alt {
+  color: rgb(112, 0, 0);
+}
+
+.icons {
+  font-size: 2.5rem;
+}

@@ -15,7 +15,10 @@
 
     <link rel="stylesheet" href="./assets/stye.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
   </head>
   <body>
     <div id="app">
@@ -24,17 +27,19 @@
           <img :src="logo" alt="" width="400px">
         </header>
 
-        <main class="py-4 bg-primary w-50 mx-auto">
+        <main class="py-4 w-50 mx-auto">
           <div class="form">
             <input type="text" v-model="newTask" class="w-75" placeholder="Add your Task!">
-            <button class="button rounded">Add Task</button>
+            <button @click="addTask" class="button rounded">Add Task</button>
           </div>
 
-          <div class="tasks px-2 mt-4">
-            <div class="item d-flex justify-content-between fs-4" v-for="(task, index) in tasks">
-              {{task}}
-              <div>
-                <i class="fas fa-trash-alt"></i>
+          <div class="tasks px-2 mt-4 w-100">
+            <div class="item d-flex justify-content-between fs-4"
+              v-for="(task, n) in tasks">
+              <p class="d-flex flex-wrap align-items-center">{{task}}</p>
+              <div class="icons">
+                <i class="fab fa-jedi-order"></i>
+                <i @click="removeTask(n)" class="fas fa-trash-alt"></i>
               </div>
             </div>
 
