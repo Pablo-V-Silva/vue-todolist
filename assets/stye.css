@@ -1,0 +1,8 @@
+.button {
+  border: 1px solid gray;
+}
+
+.form * {
+  padding: 0.4rem 0.4rem;
+  margin: 0 0.5rem;
+}
