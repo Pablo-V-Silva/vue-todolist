@@ -29,20 +29,25 @@
 
         <main class="py-4 w-50 mx-auto">
           <div class="form">
-            <input type="text" v-model="newTask" class="w-75" placeholder="Add your Task!">
+            <input type="text" v-model="newTask" class="w-75" placeholder="Add your Task!" @keyup.enter="addTask">
             <button @click="addTask" class="button rounded">Add Task</button>
+            <p class="nullTask" v-show="nullTask">Occhio, non hai scritto nulla da fare! scrivi almeno 8 caratteri per descrivere cosa DEVI fare! Il successo è dietro l'angolo Keep Going!</p>
+            <p class="caracterError"></p>
           </div>
 
-          <div class="tasks px-2 mt-4 w-100">
+          <div class="tasks px-2 mt-4 w-100" v-if="tasks.length > 0">
             <div class="item d-flex justify-content-between fs-4"
               v-for="(task, n) in tasks">
               <p class="d-flex flex-wrap align-items-center">{{task}}</p>
               <div class="icons">
-                <i class="fab fa-jedi-order"></i>
+                <i @click="doneTask(n)" class="fab fa-jedi-order"></i>
                 <i @click="removeTask(n)" class="fas fa-trash-alt"></i>
               </div>
             </div>
+          </div>
 
+          <div v-else class="istruction_contain text-center">
+            <h2 class="istruction">Qui verrano elencati i tuoi impegni, scrivine subito uno qui sopra <i class="far fa-hand-point-up"></i></h2>
           </div>
         </main>
       </div>

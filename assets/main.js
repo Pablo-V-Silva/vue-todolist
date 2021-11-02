@@ -4,18 +4,14 @@ const app = new Vue({
     tasks: [],
     logo: 'https://www.boolean.careers/images/misc/logo.png',
     newTask: '',
-    nullTask: false,
-    caracterTask: false
+    nullTask: false
   },
   methods: {
     addTask() {
-      if (this.newTask != '' && this.newTask.length > 8) {
+      if (this.newTask != '' && this.newTask.length > 5) {
         this.tasks.push(this.newTask)
-        nullTask = false
-        caracterTask = false
+        this.nullTask = false
       } else if (this.newTask.length < 5) {
-        this.caracterTask = true
-      } else {
         this.nullTask = true
       }
       this.newTask = ''
@@ -24,5 +20,7 @@ const app = new Vue({
     removeTask(i) {
       this.tasks.splice(i, 1)
     }
+
+
   }
 })
